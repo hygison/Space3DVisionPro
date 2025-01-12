@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Space3DVisionPro
-//
-//  Created by Hygison on 2025/01/10.
-//
-
 import RealityKit
 import SwiftUI
 
@@ -12,11 +5,18 @@ struct ContentView: View {
     @Environment(AppModel.self) private var appModel
 
     let SPACES_STRING: [String] = [
-        "AdobeStock_326375001_Preview",
+        "building_outside", // Ref: Insta360
+        "building_park_2",
+        "building_park",
+        "home_corridor",
+        "lawsome",
+        "parking_entrance",
+        "kris-guico-rsB-he-ye7w-unsplash", // Ref: unsplash
+        "bryan-goff-IuyhXAia8EA-unsplash",
+        "AdobeStock_326375001_Preview", // Ref: AdobeStock
         "AdobeStock_223778008_Preview",
         "AdobeStock_233005056_Preview",
-        "AdobeStock_322882600_Preview",
-        "AdobeStock_326375001_Preview"
+        "AdobeStock_322882600_Preview"
     ]
 
     var body: some View {
@@ -33,7 +33,6 @@ struct ContentView: View {
                             .frame(width: 2*537.6, height: 2*268.8)
                             .clipShape(RoundedRectangle(cornerRadius: 20))
                             .clipped()
-                        //                    5376 × 2688
                     }
                 }
             }

@@ -1,13 +1,5 @@
-//
-//  AppModel.swift
-//  Space3DVisionPro
-//
-//  Created by Hygison on 2025/01/10.
-//
-
 import SwiftUI
 
-/// Maintains app-wide state
 @MainActor
 @Observable
 class AppModel {
@@ -18,7 +10,7 @@ class AppModel {
         case open
     }
 
-    var activeSpace = "AdobeStock_326375001_Preview"
+    var activeSpace = "building_outside"
     var immersiveSpaceState = ImmersiveSpaceState.closed
 
     func setSpace(_ space: String) {
