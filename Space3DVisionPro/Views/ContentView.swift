@@ -22,41 +22,23 @@ struct ContentView: View {
     ]
     let imageSize = 1.0
 
+    let description =
+        "Lorem ipsum dolor sit amet. At possimus aliquam non sunt exercitationem et omnis earum et voluptatibus perspiciatis non dignissimos dolor aut commodi sint. Est culpa architecto ut sunt fugiat aut quidem quisquam eum praesentium iusto in laudantium beatae. Ut eaque molestiae aut facilis nesciunt ea odio ipsum in quia officia sed facere accusantium ut facilis totam aut iusto porro. Et ipsa cupiditate et eius suscipit quo pariatur exercitationem et illo perferendis sed omnis libero!"
+
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVStack(alignment: .leading) {
+                LazyVGrid(
+                    columns: [
+                        GridItem(.adaptive(minimum: 400), spacing: 10)
+                    ], spacing: 10
+                ) {
                     ForEach(SPACES_STRING, id: \.self) { spaceName in
-                        HStack(alignment: .top) {
-                            Image(uiImage: UIImage(named: spaceName)!)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(
-                                    width: imageSize * 537.6,
-                                    height: imageSize * 268.8
-                                )
-                                .clipped()
-                                .padding(.trailing, 20)
-
-                            VStack(alignment: .leading) {
-                                Text(spaceName)
-                                    .font(.extraLargeTitle2)
-                                    .lineLimit(1)
-                                    .truncationMode(.tail)
-                                    .help(Text(spaceName))
-                                Spacer()
-                                HStack {
-                                    Spacer()
-                                    Button(action: {
-                                        appModel.setSpace(spaceName)
-                                    }) {
-                                        Image(systemName: "play")
-                                            .font(.title)
-                                    }
-                                }
-                            }
-                        }
-                        .padding()
+                        CardImageView(
+                            spaceName: spaceName,
+                            description: description
+                        )
+                        .gridCellUnsizedAxes(.vertical)
                     }
                 }
             }
